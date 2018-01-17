@@ -4,13 +4,16 @@ window.onload=function(){
   var todoList=document.getElementById("todoList");
 
   var todoArr=JSON.parse(localStorage.getItem("todoArr"))||[];
-  var todoItem={};
 
   addButton.onclick=function(){
+    var todoItem={};  
     todoItem.task=addBox.value;
     addBox.value="";
     todoItem.status="notDone";
+    console.log(JSON.stringify(todoArr))
     todoArr.push(todoItem);
+    console.log(JSON.stringify(todoArr));
+    
     localStorage.setItem("todoArr",JSON.stringify(todoArr));
     display();
   }
